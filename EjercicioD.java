@@ -1,60 +1,66 @@
 package ejercicios;
 
+import java.util.Scanner;
+
 public class EjercicioD {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		 if (args.length != 1) {
-	            System.out.println("ingrese un año :");
-	            return;
-	        }
+		 Scanner scanner = new Scanner(System.in);
+		   System.out.print("Ingrese un año: ");
+	        if (scanner.hasNextInt()) {
+	            int year = scanner.nextInt();
+	            int remainder = year % 12;
 
-	        try {
-	            int year = Integer.parseInt(args[0]);
+	            String animal = "";
 
-	            switch (year % 12) {
+	            switch (remainder) {
 	                case 0:
-	                    System.out.println(year + " es el año del monkey.");
+	                    animal = "monkey";
 	                    break;
 	                case 1:
-	                    System.out.println(year + " es el año del Gallo.");
+	                    animal = "gallo";
 	                    break;
 	                case 2:
-	                    System.out.println(year + " es el año del Perro.");
+	                    animal = "Perro";
 	                    break;
 	                case 3:
-	                    System.out.println(year + " es el año del Cerdo.");
+	                    animal = "cerdo";
 	                    break;
 	                case 4:
-	                    System.out.println(year + " es el año de la Rata.");
+	                    animal = "rata";
 	                    break;
 	                case 5:
-	                    System.out.println(year + " es el año del Buey.");
+	                    animal = "buey";
 	                    break;
 	                case 6:
-	                    System.out.println(year + " es el año del Tigre.");
+	                    animal = "tigre";
 	                    break;
 	                case 7:
-	                    System.out.println(year + " es el año del Conejo.");
+	                    animal = "conejo";
 	                    break;
 	                case 8:
-	                    System.out.println(year + " es el año del Dragón.");
+	                    animal = "dragón";
 	                    break;
 	                case 9:
-	                    System.out.println(year + " es el año de la Serpiente.");
+	                    animal = "serpiente";
 	                    break;
 	                case 10:
-	                    System.out.println(year + " es el año del Caballo.");
+	                    animal = "caballo";
 	                    break;
 	                case 11:
-	                    System.out.println(year + " es el año de la Oveja.");
+	                    animal = "cabra";
 	                    break;
 	                default:
 	                    System.out.println("Año no válido.");
+	                    return;
 	            }
-	        } catch (NumberFormatException e) {
-	            System.out.println("ingrese un año válido :");
-	        }
-	}
 
-}
+	            System.out.println(year + " es el año del " + animal + ".");
+	        } else {
+	            System.out.println("Debe ingresar un número entero como año.");
+	        }
+
+	        scanner.close();
+	    }
+	}
